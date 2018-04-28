@@ -1,13 +1,14 @@
 ﻿using DeveloperEvaluation.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DeveloperEvaluation.BLL
 {
     public interface IStatsCalc
     {
-        float mean(List<int> nums);
-        float median(List<int> nums);
-        float mode(List<int> nums);
-        Stats Calc(List<int> nums);
+        Task<float> mean(List<int> nums);
+        Task<float> median(List<int> nums);
+        Task<float> mode(List<int> nums);
+        Task<Stats> CalcAsync(List<int> nums);
     }
 }

@@ -19,7 +19,7 @@ namespace DeveloperEvaluation.Controllers
         [Route("CalcStats")]
         public IHttpActionResult CreateStats([FromBody]List<int> nums)
         {
-                Stats res = _statsCalc.Calc(nums); 
+                Stats res = _statsCalc.CalcAsync(nums).Result; 
                 return Ok(res);
         }
     }

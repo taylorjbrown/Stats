@@ -10,6 +10,11 @@ namespace DeveloperEvaluation.Controllers
     {
         private readonly IStatsCalc _statsCalc;
 
+        public StatsController(IStatsCalc statsCalc)
+        {
+            _statsCalc = statsCalc;
+        }
+
         [HttpPost]
         [Route("CalcStats")]
         public IHttpActionResult CreateStats([FromBody]List<int> nums)

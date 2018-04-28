@@ -1,8 +1,5 @@
 ﻿using DeveloperEvaluation.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace DeveloperEvaluation.BLL
 {
@@ -30,13 +27,8 @@ namespace DeveloperEvaluation.BLL
             float calcMean = mean(nums);
             float calcMedian = median(nums);
             float calcMode = mode(nums);
-            string input = nums.ToString();
 
-            Stats result = new Stats();
-            result.input = input;
-            result.Mean = calcMean;
-            result.Median = calcMedian;
-            result.Mode = calcMode;
+            Stats result = new Stats(calcMean, calcMedian, calcMode);
 
             return result;
         }

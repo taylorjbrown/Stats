@@ -1,5 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using DeveloperEvaluation.BLL;
+using Microsoft.Owin;
 using Owin;
+using SimpleInjector;
+using SimpleInjector.Integration.WebApi;
+using SimpleInjector.Lifestyles;
 using System.Web.Http;
 
 [assembly: OwinStartup(typeof(DeveloperEvaluation.Startup))]
@@ -10,9 +14,17 @@ namespace DeveloperEvaluation
     {
         public void Configuration(IAppBuilder app)
         {
-            HttpConfiguration config = new HttpConfiguration();
-            WebApiConfig.Register(config);
-            app.UseWebApi(config);
+            
+
+            var container = new Container();
+            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+            container.Register<IStatsCalc, StatsCalc>(Lifestyle.Scoped);
+            container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+            container.Verify();
+
+            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            app.UseWebApi(GlobalConfiguration.Configuration);
         }
     }
 }

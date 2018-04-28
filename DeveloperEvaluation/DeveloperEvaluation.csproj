@@ -4612,6 +4612,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="zApp\components\modalState.js" />
+    <Content Include="zApp\components\Stats\ResultModal.html" />
     <Content Include="zApp\components\Stats\statsCalcController.js" />
     <Content Include="zApp\components\Stats\StatsCalcView.html" />
     <Content Include="zApp\StatsCalc.js" />

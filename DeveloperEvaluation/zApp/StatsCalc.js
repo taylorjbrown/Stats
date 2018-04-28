@@ -1,25 +1,32 @@
-﻿var App = angular.module("StatsCalc",["ui.router"]);
+﻿var App = angular.module("StatsCalc",["ui.router","ui.bootstrap"]);
 
-//App.service("stackTraceService", stackTraceService);
-
+App.provider("modalState", modalState);
 App.controller("statsCalcController", statsCalcController);
 
-var configFun = function ($stateProvider, $urlProvider, $locationProvider) {
-    $locationProvider.html5mode(true);
+var configFun = function ($stateProvider, modalStateProvider,$urlRouterProvider, $locationProvider) {
+   
+
+    $locationProvider.html5Mode(true);
+
     $stateProvider
-        .state("StatCalcView", {
-            url: "/Stats",
-            templateUrl: "zApp/components/Stats/StatsCalcView.html",
-            controller: statsCalcController
-        }
-    )
+        .state('Stats', {
+            url: '/Stats',
+            templateUrl: 'zApp/components/Stats/StatsCalcView.html',
+            controller: 'statsCalcController'
+        });
+
+    $urlRouterProvider.otherwise('/Stats');
+
+    modalStateProvider.state("Stats.resultModal", {
+        url: '/result',
+        templateUrl: 'zApp/components/Stats/ResultModal.html'
+    });
 }
 
-configFun.$inject = ['$stateProvider', '$urlProvider', '$locationProvider'];
+configFun.$inject = ['$stateProvider', 'modalStateProvider','$urlRouterProvider', '$locationProvider'];
 
-App.run(["$rootScope", "$state", function ($rootScope, $state) {
-    $rootScope.$state = $state;
-    if ($rootScope.$state !== "StatCalcView") {
-        $state.go("StatCalcView");
-    }
+App.config(configFun);
+
+App.run(["$rootScope", "$state", function ($rootScope ,$state) {
+   
 }]);

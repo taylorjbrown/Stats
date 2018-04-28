@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DeveloperEvaluation.Model
+﻿namespace DeveloperEvaluation.Model
 {
     public class Stats
     {
-        public string input { get; set;}
+        public Stats() { }
+
+        public Stats(float mean, float median, float mode)
+        {
+            Mean = mean;
+            Median = median;
+            Mode = mode;
+        }
         public float Mean { get; set; }
         public float Median { get; set; }
         public float Mode { get; set; }

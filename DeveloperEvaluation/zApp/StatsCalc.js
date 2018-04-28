@@ -1,4 +1,4 @@
-﻿var App = angular.module("StatsCalc",["ui.router","ui.bootstrap"]);
+﻿var App = angular.module("StatsCalc", ['ui.router', 'ui.bootstrap']);
 
 App.provider("modalState", modalState);
 App.controller("statsCalcController", statsCalcController);

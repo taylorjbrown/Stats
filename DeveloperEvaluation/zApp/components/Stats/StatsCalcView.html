@@ -1,5 +1,5 @@
 ﻿<div class="form-group">
     <label for="input">Array:</label>
-    <textarea class="form-control" rows="5" ng-model="input" ng-keyup="$event.keyCode === 13 && calc()" id="input"></textarea>
-    <button class="btn btn-primary" ng-click="calc()">Calculate</button>
+    <textarea class="form-control" rows="5" ng-model="input" ng-keyup="$event.keyCode === 13 && calc()" id="input" ui-sref=".result"></textarea>
+    <button class="btn btn-primary" ng-click="calc()" ui-sref=".result">Calculate</button>
 </div>

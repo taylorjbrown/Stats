@@ -2,7 +2,7 @@
 
 
 //need to add validation of the user input
-var statsCalcController = function ($scope, $http) {
+var statsCalcController = function ($scope, $state, $http) {
     $scope.input = "";
 
     var validation = function (input) {
@@ -17,6 +17,7 @@ var statsCalcController = function ($scope, $http) {
 
             $http.post('Api/CalcStats', nums).then(function (response) {
                 console.log(response);
+                $state.go('Stats.resultModal');
             }, function (error) {
                 console.log(error);
             });
@@ -26,4 +27,4 @@ var statsCalcController = function ($scope, $http) {
 
 }
 
-statsCalcController.$inject = ['$scope', '$http'];
+statsCalcController.$inject = ['$scope', '$state','$http'];

@@ -1,7 +1,8 @@
-﻿var App = angular.module("StatsCalc", ['ui.router', 'ui.bootstrap']);
+﻿var App = angular.module("StatsCalc", ['ui.router','ngResource','ui.bootstrap']);
 
 App.controller("statsCalcController", statsCalcController);
 App.controller("resultController", resultController);
+App.controller("alertController", alertController);
 
 var configFun = function ($stateProvider,$urlRouterProvider, $locationProvider) {
    
@@ -14,10 +15,24 @@ var configFun = function ($stateProvider,$urlRouterProvider, $locationProvider) 
             templateUrl: 'zApp/components/Stats/StatsCalcView.html',
             controller: 'statsCalcController'
         })
-        .state('Stats.result', {
-            params: {stats: ''},
+        .state('Stats.Result', {
+            params: {
+                stats: {}
+            },
             templateUrl: 'zApp/components/Stats/Result.html',
             controller: 'resultController'
+        })
+        .state('Stats.Alert', {
+            url: '/Alert',
+            params: {
+                error: null,
+            },
+            onEnter: function ($stateParams, $state, $uibModal, $resource) {
+                $uibModal.open({
+                    templateUrl: 'zApp/components/Stats/Alert.html',
+                    controller: alertController
+                }).result.then(function () { }, function (res) { });
+            }
         });
 
     $urlRouterProvider.otherwise('/Stats');

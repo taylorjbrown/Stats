@@ -211,6 +211,9 @@
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap-tpls.min.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap.min.js" />
+    <Content Include="bower_components\angular-resource\angular-resource.js" />
+    <Content Include="bower_components\angular-resource\angular-resource.min.js" />
+    <Content Include="bower_components\angular-resource\index.js" />
     <Content Include="bower_components\angular-ui-router\karma.conf.js" />
     <Content Include="bower_components\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="bower_components\angular-ui-router\release\angular-ui-router.min.js" />
@@ -225,6 +228,10 @@
     <Content Include="bower_components\angularjs\angular.js" />
     <Content Include="bower_components\angularjs\angular.min.js" />
     <Content Include="bower_components\angularjs\index.js" />
+    <Content Include="bower_components\angular\angular-csp.css" />
+    <Content Include="bower_components\angular\angular.js" />
+    <Content Include="bower_components\angular\angular.min.js" />
+    <Content Include="bower_components\angular\index.js" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap.css" />
@@ -4599,6 +4606,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="zApp\components\Stats\Alert.html" />
+    <Content Include="zApp\components\Stats\alertController.js" />
     <Content Include="zApp\components\Stats\resultController.js" />
     <Content Include="zApp\components\Stats\Result.html" />
     <Content Include="zApp\components\Stats\statsCalcController.js" />
@@ -6281,6 +6290,19 @@
     <Content Include="node_modules\bower\LICENSE" />
     <Content Include="node_modules\bower\package.json" />
     <Content Include="node_modules\bower\README.md" />
+    <Content Include="bower_components\angular\.bower.json" />
+    <Content Include="bower_components\angular\angular.min.js.gzip" />
+    <Content Include="bower_components\angular\angular.min.js.map" />
+    <Content Include="bower_components\angular\bower.json" />
+    <Content Include="bower_components\angular\LICENSE.md" />
+    <Content Include="bower_components\angular\package.json" />
+    <Content Include="bower_components\angular\README.md" />
+    <Content Include="bower_components\angular-resource\.bower.json" />
+    <Content Include="bower_components\angular-resource\angular-resource.min.js.map" />
+    <Content Include="bower_components\angular-resource\bower.json" />
+    <Content Include="bower_components\angular-resource\LICENSE.md" />
+    <Content Include="bower_components\angular-resource\package.json" />
+    <Content Include="bower_components\angular-resource\README.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

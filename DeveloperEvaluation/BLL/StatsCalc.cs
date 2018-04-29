@@ -8,29 +8,29 @@ namespace DeveloperEvaluation.BLL
     public class StatsCalc : IStatsCalc
     {
 
-        public async Task<double> mean(List<double> nums)
+        public async Task<decimal> mean(List<decimal> nums)
         {
             return nums.Average(x => x);
         }
 
-        public async Task<double> median(List<double> nums)
+        public async Task<decimal> median(List<decimal> nums)
         {
             return nums.OrderBy(n => n)
                 .Skip(nums.Count / 2).First();
         }
 
-        public async Task<double> mode(List<double> nums)
+        public async Task<decimal> mode(List<decimal> nums)
         {
             return nums.GroupBy(n => n)
                 .OrderByDescending(g => g.Count())
                 .Select(g => g.Key).FirstOrDefault();
         }
 
-        public async Task<Stats> CalcAsync(List<double> nums)
+        public async Task<Stats> CalcAsync(List<decimal> nums)
         {
-            Task<double> calcMean = mean(nums);
-            Task<double> calcMedian = median(nums);
-            Task<double> calcMode = mode(nums);
+            Task<decimal> calcMean = mean(nums);
+            Task<decimal> calcMedian = median(nums);
+            Task<decimal> calcMode = mode(nums);
 
             await Task.WhenAll(calcMean, calcMedian, calcMode);
 

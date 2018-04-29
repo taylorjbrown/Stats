@@ -4,14 +4,14 @@
     {
         public Stats() { }
 
-        public Stats(double mean, double median, double mode)
+        public Stats(decimal mean, decimal median, decimal mode)
         {
             Mean = mean;
             Median = median;
             Mode = mode;
         }
-        public double Mean { get; set; }
-        public double Median { get; set; }
-        public double Mode { get; set; }
+        public decimal Mean { get; set; }
+        public decimal Median { get; set; }
+        public decimal Mode { get; set; }
     }
 }

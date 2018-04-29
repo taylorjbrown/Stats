@@ -225,10 +225,6 @@
     <Content Include="bower_components\angularjs\angular.js" />
     <Content Include="bower_components\angularjs\angular.min.js" />
     <Content Include="bower_components\angularjs\index.js" />
-    <Content Include="bower_components\angular\angular-csp.css" />
-    <Content Include="bower_components\angular\angular.js" />
-    <Content Include="bower_components\angular\angular.min.js" />
-    <Content Include="bower_components\angular\index.js" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
     <Content Include="bower_components\bootstrap\dist\css\bootstrap.css" />
@@ -373,15 +369,6 @@
     <Content Include="bower_components\jquery\src\var\support.js" />
     <Content Include="bower_components\jquery\src\var\toString.js" />
     <Content Include="bower_components\jquery\src\wrap.js" />
-    <Content Include="bower_components\stacktrace-js\dist\stacktrace-with-promises-and-json-polyfills.js" />
-    <Content Include="bower_components\stacktrace-js\dist\stacktrace-with-promises-and-json-polyfills.min.js" />
-    <Content Include="bower_components\stacktrace-js\dist\stacktrace.js" />
-    <Content Include="bower_components\stacktrace-js\dist\stacktrace.min.js" />
-    <Content Include="bower_components\stacktrace-js\gulpfile.js" />
-    <Content Include="bower_components\stacktrace-js\karma.conf.ci.js" />
-    <Content Include="bower_components\stacktrace-js\karma.conf.js" />
-    <Content Include="bower_components\stacktrace-js\polyfills.js" />
-    <Content Include="bower_components\stacktrace-js\stacktrace.js" />
     <Content Include="Index.html" />
     <Content Include="node_modules\bower\lib\bin\bower.js" />
     <Content Include="node_modules\bower\lib\commands\cache\clean.js" />
@@ -4658,13 +4645,6 @@
     <Content Include="bower_components\angularjs\LICENSE.md" />
     <Content Include="bower_components\angularjs\package.json" />
     <Content Include="bower_components\angularjs\README.md" />
-    <Content Include="bower_components\angular\.bower.json" />
-    <Content Include="bower_components\angular\angular.min.js.gzip" />
-    <Content Include="bower_components\angular\angular.min.js.map" />
-    <Content Include="bower_components\angular\bower.json" />
-    <Content Include="bower_components\angular\LICENSE.md" />
-    <Content Include="bower_components\angular\package.json" />
-    <Content Include="bower_components\angular\README.md" />
     <Content Include="bower_components\bootstrap\.bower.json" />
     <Content Include="bower_components\bootstrap\bower.json" />
     <Content Include="bower_components\bootstrap\CHANGELOG.md" />
@@ -4775,18 +4755,6 @@
     <Content Include="bower_components\jquery\external\sizzle\dist\sizzle.min.map" />
     <Content Include="bower_components\jquery\README.md" />
     <Content Include="bower_components\jquery\src\.eslintrc.json" />
-    <Content Include="bower_components\stacktrace-js\.bower.json" />
-    <Content Include="bower_components\stacktrace-js\bower.json" />
-    <Content Include="bower_components\stacktrace-js\CHANGELOG.md" />
-    <Content Include="bower_components\stacktrace-js\component.json" />
-    <Content Include="bower_components\stacktrace-js\dist\stacktrace-with-promises-and-json-polyfills.js.map" />
-    <Content Include="bower_components\stacktrace-js\dist\stacktrace-with-promises-and-json-polyfills.min.js.map" />
-    <Content Include="bower_components\stacktrace-js\dist\stacktrace.min.js.map" />
-    <Content Include="bower_components\stacktrace-js\jsdoc.conf.json" />
-    <Content Include="bower_components\stacktrace-js\LICENSE" />
-    <Content Include="bower_components\stacktrace-js\MIGRATION_GUIDE.md" />
-    <Content Include="bower_components\stacktrace-js\package.json" />
-    <Content Include="bower_components\stacktrace-js\README.md" />
     <Content Include="node_modules\.bin\bower" />
     <Content Include="node_modules\.bin\bower.cmd" />
     <Content Include="node_modules\bower\bin\bower" />
@@ -6316,7 +6284,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="bower_components\stacktrace-js\stacktrace-js.d.ts" />
     <TypeScriptCompile Include="node_modules\bower\lib\node_modules\ajv\lib\ajv.d.ts" />
     <TypeScriptCompile Include="node_modules\bower\lib\node_modules\tweetnacl\nacl.d.ts" />
   </ItemGroup>

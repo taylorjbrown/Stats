@@ -6,7 +6,6 @@
     "jquery": "^3.2.1",
     "angularjs": "^1.6.10",
     "angular-bootstrap": "^2.5.0",
-    "angular-ui-router": "^1.0.15",
-    "stacktrace-js": "^2.0.0"
+    "angular-ui-router": "^1.0.15"
   }
 }

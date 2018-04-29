@@ -5,3 +5,6 @@
     margin-top: 40px;
 }
 
+.newLines {
+    white-space: pre-wrap;
+}

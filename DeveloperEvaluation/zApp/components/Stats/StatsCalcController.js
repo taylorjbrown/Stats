@@ -1,19 +1,18 @@
-﻿
-
-
-//need to add validation of the user input
-var statsCalcController = function ($rootScope,$scope, $uibModal, $state, $http) {
+﻿var statsCalcController = function ($rootScope,$scope, $uibModal, $state, $http) {
 
     $scope.input = "";
 
     var validation = function (input) {
-        var check = /^[-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/.test(input);
+        var removedNewLines = input.replace(/\r?\n|\r/g, '');
+       
+        var check = /^[-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/.test(removedNewLines);
+       
         var nums = [];
         if (check) {
-            nums = input.split(',').map(Number);
+            nums = removedNewLines.split(',').map(Number);
         }
         else {
-            $rootScope.err = 'Badly formated input <br\> Needs to be a commad seperated arrray of numbers <br\>Ex: -1.444,2.222,-3.22222';
+            $rootScope.err = 'Badly formated input \nNeeds to be a commad seperated arrray of numbers \nEx: -1.444,2.222,-3.22222';
             $state.go('Stats.Alert');
         }
         return nums;
@@ -21,8 +20,7 @@ var statsCalcController = function ($rootScope,$scope, $uibModal, $state, $http)
 
     $scope.preventNewLine = function (event) {
         if (event.keyCode === 13) {
-            event.preventDefault();
-            //need to stop newline when enter is hit
+            //event.preventDefault(); (use if don't want newlines on enter)
             $scope.calc();
         }
     }
@@ -34,17 +32,17 @@ var statsCalcController = function ($rootScope,$scope, $uibModal, $state, $http)
             if (nums.length > 0) {
                 $http.post('Api/CalcStats', nums).then(function (response) {
                     $scope.res = response.data;
-                    console.log($scope.res);
+ 
                     $state.go('Stats.Result', { stats: $scope.res });
                 }, function (errResponse) {
-                    console.log(err);
-                    $rootScope.err = 'Issue with server: <br\>' + errResponse;
+                    console.error(err);
+                    $rootScope.err = 'Issue with server: \n' + errResponse;
                     $state.go('Stats.Alert');
                 });
             }
         }
         else {
-            $rootScope.err = 'Empty input submission <br\> Need to input an array of numbers seperated by \',\' for calculations to run';
+            $rootScope.err = 'Empty input submission \nNeed to input an array of numbers seperated by \',\' for calculations to run';
             $state.go('Stats.Alert');
         }
     }

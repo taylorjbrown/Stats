@@ -4606,8 +4606,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="zApp\components\Stats\Alert.html" />
-    <Content Include="zApp\components\Stats\alertController.js" />
+    <Content Include="zApp\components\Shared\Alert.html" />
+    <Content Include="zApp\components\Shared\alertController.js" />
     <Content Include="zApp\components\Stats\resultController.js" />
     <Content Include="zApp\components\Stats\Result.html" />
     <Content Include="zApp\components\Stats\statsCalcController.js" />

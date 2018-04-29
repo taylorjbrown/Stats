@@ -29,7 +29,7 @@ var configFun = function ($stateProvider,$urlRouterProvider, $locationProvider) 
             },
             onEnter: function ($stateParams, $state, $uibModal, $resource) {
                 $uibModal.open({
-                    templateUrl: 'zApp/components/Stats/Alert.html',
+                    templateUrl: 'zApp/components/Shared/Alert.html',
                     controller: alertController
                 }).result.then(function () { }, function (res) { });
             }

@@ -3,16 +3,15 @@
     $scope.input = "";
 
     var validation = function (input) {
-        var removedNewLines = input.replace(/\r?\n|\r/g, '');
-       
-        var check = /^[-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/.test(removedNewLines);
-       
+
+        var check = /[\s\S][-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/g.test(input);
+
         var nums = [];
         if (check) {
-            nums = removedNewLines.split(',').map(Number);
+            nums = input.split(',').map(Number);
         }
         else {
-            $rootScope.err = 'Badly formated input \nNeeds to be a commad seperated arrray of numbers \nEx: -1.444,2.222,-3.22222';
+            $rootScope.err = 'Badly formated input \nNeeds to be a commad seperated arrray of numbers\nEach new line should not start with a comma \nNor should any line end with a comma \nEx: \n-1.444,2.222,-3.22222\n1,2,-4';
             $state.go('Stats.Alert');
         }
         return nums;

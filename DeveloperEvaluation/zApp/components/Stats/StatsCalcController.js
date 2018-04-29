@@ -2,7 +2,7 @@
 
 
 //need to add validation of the user input
-var statsCalcController = function ($scope, $uibModal, $state, $http) {
+var statsCalcController = function ($rootScope,$scope, $uibModal, $state, $http) {
 
     $scope.input = "";
 
@@ -13,8 +13,8 @@ var statsCalcController = function ($scope, $uibModal, $state, $http) {
             nums = input.split(',').map(Number);
         }
         else {
-            var err = 'Badly formated input \nNeeds to be a commad seperated arrray of numbers \nEx: -1.444,2.222,-3.22222';
-            $state.go('Stats.Alert', { error: err});
+            $rootScope.err = 'Badly formated input <br\> Needs to be a commad seperated arrray of numbers <br\>Ex: -1.444,2.222,-3.22222';
+            $state.go('Stats.Alert');
         }
         return nums;
     }
@@ -36,20 +36,20 @@ var statsCalcController = function ($scope, $uibModal, $state, $http) {
                     $scope.res = response.data;
                     console.log($scope.res);
                     $state.go('Stats.Result', { stats: $scope.res });
-                }, function (err) {
+                }, function (errResponse) {
                     console.log(err);
-                    var errResponse = 'Issue with server: \n' + err;
-                    $state.go('Stats.Alert', { error: errResponse });
+                    $rootScope.err = 'Issue with server: <br\>' + errResponse;
+                    $state.go('Stats.Alert');
                 });
             }
         }
         else {
-            var err = 'Empty input submission \nNeed to input an array of numbers seperated by \',\' for calculations to run';
-            $state.go('Stats.Alert', { error: err });
+            $rootScope.err = 'Empty input submission <br\> Need to input an array of numbers seperated by \',\' for calculations to run';
+            $state.go('Stats.Alert');
         }
     }
 
 
 }
 
-    statsCalcController.$inject = ['$scope','$uibModal', '$state', '$http'];
+    statsCalcController.$inject = ['$rootScope','$scope','$uibModal', '$state', '$http'];

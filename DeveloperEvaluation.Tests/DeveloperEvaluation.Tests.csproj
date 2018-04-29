@@ -96,6 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatsApiControllerTests.cs" />
+    <Compile Include="StatsBLLTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

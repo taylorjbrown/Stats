@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="StatsCalc">
 <head>
 
     <meta charset="utf-8" />
@@ -14,18 +14,18 @@
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script type="text/javascript" src="bower_components/stacktrace-js/dist/stacktrace.js"></script>
-    <script type="text/javascript" src="zApp/components/modalState.js"></script>
     <script type="text/javascript" src="zApp/components/Stats/statsCalcController.js"></script>
+    <script type="text/javascript" src="zApp/components/Stats/resultController.js"></script>
     <script type="text/javascript" src="zApp/StatsCalc.js"></script>
 
     <base href="/" />
 </head>
-<body ng-app="StatsCalc">
+<body>
      <div class="container">
          <ui-view></ui-view>
      </div>
 
-    <div class="footer">
+    <div id="footer">
         <p>&copy;Developer Taylor Brown</p>
     </div>
 </body>

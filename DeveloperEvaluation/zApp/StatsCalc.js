@@ -1,9 +1,9 @@
 ﻿var App = angular.module("StatsCalc", ['ui.router', 'ui.bootstrap']);
 
-App.provider("modalState", modalState);
 App.controller("statsCalcController", statsCalcController);
+App.controller("resultController", resultController);
 
-var configFun = function ($stateProvider, modalStateProvider,$urlRouterProvider, $locationProvider) {
+var configFun = function ($stateProvider,$urlRouterProvider, $locationProvider) {
    
 
     $locationProvider.html5Mode(true);
@@ -13,20 +13,20 @@ var configFun = function ($stateProvider, modalStateProvider,$urlRouterProvider,
             url: '/Stats',
             templateUrl: 'zApp/components/Stats/StatsCalcView.html',
             controller: 'statsCalcController'
+        })
+        .state('Stats.result', {
+            params: {stats: ''},
+            templateUrl: 'zApp/components/Stats/Result.html',
+            controller: 'resultController'
         });
 
     $urlRouterProvider.otherwise('/Stats');
-
-    modalStateProvider.state("Stats.resultModal", {
-        url: '/result',
-        templateUrl: 'zApp/components/Stats/ResultModal.html'
-    });
 }
 
-configFun.$inject = ['$stateProvider', 'modalStateProvider','$urlRouterProvider', '$locationProvider'];
+configFun.$inject = ['$stateProvider','$urlRouterProvider', '$locationProvider'];
 
 App.config(configFun);
 
 App.run(["$rootScope", "$state", function ($rootScope ,$state) {
-   
+
 }]);

@@ -6,9 +6,9 @@ namespace DeveloperEvaluation.BLL
 {
     public interface IStatsCalc
     {
-        Task<float> mean(List<int> nums);
-        Task<float> median(List<int> nums);
-        Task<float> mode(List<int> nums);
-        Task<Stats> CalcAsync(List<int> nums);
+        Task<double> mean(List<double> nums);
+        Task<double> median(List<double> nums);
+        Task<double> mode(List<double> nums);
+        Task<Stats> CalcAsync(List<double> nums);
     }
 }

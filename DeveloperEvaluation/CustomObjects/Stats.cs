@@ -4,14 +4,14 @@
     {
         public Stats() { }
 
-        public Stats(float mean, float median, float mode)
+        public Stats(double mean, double median, double mode)
         {
             Mean = mean;
             Median = median;
             Mode = mode;
         }
-        public float Mean { get; set; }
-        public float Median { get; set; }
-        public float Mode { get; set; }
+        public double Mean { get; set; }
+        public double Median { get; set; }
+        public double Mode { get; set; }
     }
 }

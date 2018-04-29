@@ -17,7 +17,7 @@ namespace DeveloperEvaluation.Controllers
 
         [HttpPost]
         [Route("CalcStats")]
-        public IHttpActionResult CreateStats([FromBody]List<int> nums)
+        public IHttpActionResult CreateStats([FromBody]List<double> nums)
         {
                 Stats res = _statsCalc.CalcAsync(nums).Result;
 

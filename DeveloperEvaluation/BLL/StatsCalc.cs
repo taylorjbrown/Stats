@@ -1,5 +1,6 @@
 ﻿using DeveloperEvaluation.Model;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DeveloperEvaluation.BLL
@@ -7,26 +8,29 @@ namespace DeveloperEvaluation.BLL
     public class StatsCalc : IStatsCalc
     {
 
-        public async Task<float> mean(List<int> nums)
+        public async Task<double> mean(List<double> nums)
         {
-            float res = 1.2222f;
-            return res;
+            return nums.Average(x => x);
         }
-        public async Task<float> median(List<int> nums)
+
+        public async Task<double> median(List<double> nums)
         {
-            float res = 1.2222f;
-            return res;
+            return nums.OrderBy(n => n)
+                .Skip(nums.Count / 2).First();
         }
-        public async Task<float> mode(List<int> nums)
+
+        public async Task<double> mode(List<double> nums)
         {
-            float res = 1.2222f;
-            return res;
+            return nums.GroupBy(n => n)
+                .OrderByDescending(g => g.Count())
+                .Select(g => g.Key).FirstOrDefault();
         }
-        public async Task<Stats> CalcAsync(List<int> nums)
+
+        public async Task<Stats> CalcAsync(List<double> nums)
         {
-            Task<float> calcMean = mean(nums);
-            Task<float> calcMedian = median(nums);
-            Task<float> calcMode = mode(nums);
+            Task<double> calcMean = mean(nums);
+            Task<double> calcMedian = median(nums);
+            Task<double> calcMode = mode(nums);
 
             await Task.WhenAll(calcMean, calcMedian, calcMode);
 

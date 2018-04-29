@@ -199,7 +199,7 @@
     <Compile Include="BLL\IStatsCalc.cs" />
     <Compile Include="BLL\StatsCalc.cs" />
     <Compile Include="Controllers\StatsController.cs" />
-    <Compile Include="Model\Stats.cs" />
+    <Compile Include="CustomObjects\Stats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -4612,8 +4612,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="zApp\components\modalState.js" />
-    <Content Include="zApp\components\Stats\ResultModal.html" />
+    <Content Include="zApp\components\Stats\resultController.js" />
+    <Content Include="zApp\components\Stats\Result.html" />
     <Content Include="zApp\components\Stats\statsCalcController.js" />
     <Content Include="zApp\components\Stats\StatsCalcView.html" />
     <Content Include="zApp\StatsCalc.js" />

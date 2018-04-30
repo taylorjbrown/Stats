@@ -11,8 +11,12 @@
     <tr>
         <td>Mode: </td>
         <td>
-            <div ng-if="EmptyMode === false" ng-repeat="val in stats.mode">{{val}}</div>
-            <div ng-if="EmptyMode === true">{{stats.mode}}</div>
+            <div ng-if="EmptyMode === false">
+                <div ng-repeat="val in stats.mode">{{val}}</div>
+            </div>
+            <div ng-if="EmptyMode === true">
+                <div>{{stats.mode}}</div>
+            </div>
         </td>
     </tr>
 </table>

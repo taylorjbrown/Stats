@@ -53,9 +53,15 @@ namespace DeveloperEvaluation.BLL
                     result.Add(item.val);
                 }
             }
-            
 
-            return result;
+            if (result.Count != nums.Count)
+            {
+                return result;
+            }
+            else
+            {
+                return new List<decimal>();
+            }
         }
 
         public async Task<Stats> CalcAsync(List<decimal> nums)

@@ -4,11 +4,14 @@
 
     var validation = function (input) {
 
-        var check = /[\s\S][-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/g.test(input);
-
+      //  var check = /[\s\S][-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/g.test(input);
+        var removeNewLine = input.replace(/\r?\n|\r/g, ',');
+        console.log(removeNewLine);
+        check = /[\s\S][-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/g.test(removeNewLine);
         var nums = [];
         if (check) {
-            nums = input.split(',').map(Number);
+            nums = removeNewLine.split(',').map(Number);
+            console.log(nums);
         }
         else {
             $rootScope.err = 'Badly formated input \nNeeds to be a commad seperated arrray of numbers\nEach new line should not start with a comma \nNor should any line end with a comma \nEx: \n-1.444,2.222,-3.22222\n1,2,-4';
@@ -17,7 +20,7 @@
         return nums;
     }
 
-    $scope.preventNewLine = function (event) {
+    $scope.sendToCalc = function (event) {
         if (event.keyCode === 13) {
             //event.preventDefault(); (use if don't want newlines on enter)
             $scope.calc();

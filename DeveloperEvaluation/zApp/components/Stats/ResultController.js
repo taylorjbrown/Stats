@@ -1,5 +1,5 @@
 ﻿var resultController = function ($scope, $stateParams) {
-    console.log($stateParams.stats);
+   
     if ($stateParams.stats.mode.length === 0) {
         $scope.EmptyMode = true;
         $scope.stats = {};

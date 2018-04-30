@@ -8,7 +8,7 @@ namespace DeveloperEvaluation.BLL
     {
         Task<decimal> mean(List<decimal> nums);
         Task<decimal> median(List<decimal> nums);
-        Task<decimal> mode(List<decimal> nums);
+        Task<List<decimal>> mode(List<decimal> nums);
         Task<Stats> CalcAsync(List<decimal> nums);
     }
 }

@@ -1,10 +1,12 @@
-﻿namespace DeveloperEvaluation.Model
+﻿using System.Collections.Generic;
+
+namespace DeveloperEvaluation.Model
 {
     public class Stats
     {
         public Stats() { }
 
-        public Stats(decimal mean, decimal median, decimal mode)
+        public Stats(decimal mean, decimal median, List<decimal> mode)
         {
             Mean = mean;
             Median = median;
@@ -12,6 +14,6 @@
         }
         public decimal Mean { get; set; }
         public decimal Median { get; set; }
-        public decimal Mode { get; set; }
+        public List<decimal> Mode { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace StatsApi.Controllers
         [Route("CalcStats")]
         public IHttpActionResult CreateStats([FromBody]List<decimal> nums)
         {
-                Stats res = _statsCalc.CalcAsync(nums).Result;
+                Stats res = _statsCalc.CalcAsync(nums);
 
                 return Created(Request.RequestUri.ToString(), res);
         }

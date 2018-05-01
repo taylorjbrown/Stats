@@ -6,9 +6,9 @@ namespace StatsApi.BLL
 {
     public interface IStatsCalc
     {
-        Task<decimal> Mean(List<decimal> nums);
-        Task<decimal> Median(List<decimal> nums);
-        Task<List<decimal>> Mode(List<decimal> nums);
-        Task<Stats> CalcAsync(List<decimal> nums);
+        decimal Mean(List<decimal> nums);
+        decimal Median(List<decimal> nums);
+        List<decimal> Mode(List<decimal> nums);
+        Stats CalcAsync(List<decimal> nums);
     }
 }

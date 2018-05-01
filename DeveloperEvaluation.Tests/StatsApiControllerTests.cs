@@ -42,7 +42,7 @@ namespace DeveloperEvaluation.Tests
             };
             Stats fackResult = new Stats(1.222M,1.222M, fakemode);
 
-            mockIStatsCalc.Setup(x => x.CalcAsync(fackInput)).Returns(Task.FromResult(fackResult));
+            mockIStatsCalc.Setup(x => x.CalcAsync(fackInput)).Returns(fackResult);
 
             IHttpActionResult actionresult = controller.CreateStats(fackInput);
             var result = actionresult as CreatedNegotiatedContentResult<Stats>;

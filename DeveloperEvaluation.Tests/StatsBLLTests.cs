@@ -35,9 +35,9 @@ namespace DeveloperEvaluation.Tests
                 -4.56M
             };
 
-            Task<decimal> res = _statsCalc.Mean(nums);
+            decimal res = _statsCalc.Mean(nums);
 
-            Assert.AreEqual(res.Result, 0.332M);
+            Assert.AreEqual(res, 0.332M);
 
         }
 
@@ -53,9 +53,9 @@ namespace DeveloperEvaluation.Tests
             };
 
             List<decimal> resultMock = new List<decimal>();
-            Task<List<decimal>> res = _statsCalc.Mode(nums);
+            List<decimal> res = _statsCalc.Mode(nums);
 
-            CollectionAssert.AreEqual(res.Result, resultMock);
+            CollectionAssert.AreEqual(res, resultMock);
         }
 
         //just one mode
@@ -76,8 +76,8 @@ namespace DeveloperEvaluation.Tests
                 4M
             };
 
-            Task<List<decimal>> res = _statsCalc.Mode(nums);
-            CollectionAssert.AreEqual(res.Result, resMock);
+            List<decimal> res = _statsCalc.Mode(nums);
+            CollectionAssert.AreEqual(res, resMock);
         }
 
         //more than one mode
@@ -101,8 +101,8 @@ namespace DeveloperEvaluation.Tests
                 5M
             };
 
-            Task<List<decimal>> res = _statsCalc.Mode(nums);
-            CollectionAssert.AreEqual(res.Result,resultMock);
+            List<decimal> res = _statsCalc.Mode(nums);
+            CollectionAssert.AreEqual(res,resultMock);
         }
 
         //more than one mode and different numbers of frequncy over 1
@@ -126,8 +126,8 @@ namespace DeveloperEvaluation.Tests
                 1M
             };
 
-            Task<List<decimal>> res = _statsCalc.Mode(nums);
-            CollectionAssert.AreEqual(res.Result,resultMock);
+            List<decimal> res = _statsCalc.Mode(nums);
+            CollectionAssert.AreEqual(res,resultMock);
         }
 
         [TestMethod]
@@ -140,9 +140,9 @@ namespace DeveloperEvaluation.Tests
                 -4.56M
             };
 
-            Task<decimal> res = _statsCalc.Median(nums);
+            decimal res = _statsCalc.Median(nums);
 
-            Assert.AreEqual(res.Result, 1M);
+            Assert.AreEqual(res, 1M);
         }
 
         [TestMethod]
@@ -156,9 +156,9 @@ namespace DeveloperEvaluation.Tests
                 8M
             };
 
-            Task<decimal> res = _statsCalc.Median(nums);
+            decimal res = _statsCalc.Median(nums);
 
-            Assert.AreEqual(res.Result, 5.5M);
+            Assert.AreEqual(res, 5.5M);
         }
 
         [TestMethod]
@@ -171,9 +171,9 @@ namespace DeveloperEvaluation.Tests
                 -4.56M
             };
 
-            Task<Stats> res = _statsCalc.CalcAsync(nums);
+            Stats res = _statsCalc.CalcAsync(nums);
 
-           // Assert.AreEqual(res.Result, 0.332M);
+            Assert.AreEqual(res.Mean, 0.332M);
         }
     }
 }

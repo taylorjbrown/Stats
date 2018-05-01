@@ -33,6 +33,7 @@ var configFun = function ($stateProvider, $urlRouterProvider, $locationProvider)
                     controller: alertController
                 }).result.then(function () { },
                     function (res) {
+                        $scope.input = "";
                         $state.go('^');
                 });
             }

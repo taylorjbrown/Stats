@@ -31,11 +31,11 @@
     $scope.calc = function () {
         if ($scope.input.length > 0) {
             var nums = validation($scope.input);
-
+            console.log(nums);
             if (nums.length > 0) {
                 $http.post('Api/CalcStats', nums).then(function (response) {
                     $scope.res = response.data;
-
+                    console.log($scope.res);
                     $state.go('Stats.Result', { stats: $scope.res });
                 }, function (errResponse) {
                     console.error(err);

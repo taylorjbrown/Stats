@@ -8,16 +8,14 @@ namespace StatsApi.BLL
     public class StatsCalc : IStatsCalc
     {
         public StatsCalc() { }
-        public Task<decimal> Mean(List<decimal> nums)
+        public decimal Mean(List<decimal> nums)
         {
 
-            return Task.Run(() => nums.Average(x => x));
+            return nums.Average(x => x);
         }
 
-        public Task<decimal> Median(List<decimal> nums)
+        public decimal Median(List<decimal> nums)
         {
-            return Task.Run(() =>
-            {
                 if (nums.Count % 2 != 0)
                 {
                     return nums.OrderBy(n => n).Skip(nums.Count / 2).First();
@@ -27,13 +25,11 @@ namespace StatsApi.BLL
                     List<decimal> two = nums.OrderBy(n => n).Skip((nums.Count / 2) - 1).Take(2).ToList();
                     return ((two[0] + two[1]) / 2M);
                 }
-            });
         }
 
-        public Task<List<decimal>> Mode(List<decimal> nums)
+        public List<decimal> Mode(List<decimal> nums)
         {
-            return Task.Run(() =>
-            {
+
                 var keycounts = nums.GroupBy(n => n)
                    .Select(g => new { val = g.Key, count = g.Count() })
                    .OrderByDescending(n => n.count)
@@ -50,18 +46,15 @@ namespace StatsApi.BLL
                 nums.Clear();
 
                 return (result.Count != numsCount) ? result : nums;
-            });
         }
 
-        public async Task<Stats> CalcAsync(List<decimal> nums)
+        public Stats CalcAsync(List<decimal> nums)
         {
-            Task<decimal> calcMean = Mean(nums);
-            Task<decimal> calcMedian = Median(nums);
-            Task<List<decimal>> calcMode = Mode(nums);
+            decimal calcMean = Mean(nums);
+            decimal calcMedian = Median(nums);
+            List<decimal> calcMode = Mode(nums);
 
-            await Task.WhenAll(calcMean, calcMedian, calcMode);
-
-            Stats result = new Stats(calcMean.Result, calcMedian.Result, calcMode.Result);
+            Stats result = new Stats(calcMean, calcMedian, calcMode);
 
             return result;
         }

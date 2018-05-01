@@ -1,4 +1,4 @@
-﻿using DeveloperEvaluation.BLL;
+﻿using StatsApi.BLL;
 using Owin;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;

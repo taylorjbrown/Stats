@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DeveloperEvaluation.Model
+namespace StatsApi.Model
 {
     public class Stats
     {

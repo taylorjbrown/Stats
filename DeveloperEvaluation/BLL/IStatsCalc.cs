@@ -1,14 +1,14 @@
-﻿using DeveloperEvaluation.Model;
+﻿using StatsApi.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DeveloperEvaluation.BLL
+namespace StatsApi.BLL
 {
     public interface IStatsCalc
     {
-        Task<decimal> mean(List<decimal> nums);
-        Task<decimal> median(List<decimal> nums);
-        Task<List<decimal>> mode(List<decimal> nums);
+        Task<decimal> Mean(List<decimal> nums);
+        Task<decimal> Median(List<decimal> nums);
+        Task<List<decimal>> Mode(List<decimal> nums);
         Task<Stats> CalcAsync(List<decimal> nums);
     }
 }

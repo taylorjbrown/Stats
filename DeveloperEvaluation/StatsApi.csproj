@@ -6304,6 +6304,7 @@
     <Content Include="bower_components\angular-resource\package.json" />
     <Content Include="bower_components\angular-resource\README.md" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\DisplayStats - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="node_modules\bower\lib\node_modules\ajv\lib\ajv.d.ts" />

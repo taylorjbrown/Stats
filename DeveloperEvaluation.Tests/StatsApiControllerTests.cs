@@ -1,6 +1,6 @@
-﻿using DeveloperEvaluation.BLL;
-using DeveloperEvaluation.Controllers;
-using DeveloperEvaluation.Model;
+﻿using StatsApi.BLL;
+using StatsApi.Controllers;
+using StatsApi.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
@@ -30,12 +30,16 @@ namespace DeveloperEvaluation.Tests
 
             controller.ControllerContext = new HttpControllerContext(config, routeData, request);
             controller.Request = request;
-            
-            List<decimal> fackInput = new List<decimal>();
-            fackInput.Add(1.222M);
-            fackInput.Add(1.2222M);
-            List<decimal> fakemode = new List<decimal>();
-            fakemode.Add(1.222M);
+
+            List<decimal> fackInput = new List<decimal>
+            {
+                1.222M,
+                1.2222M
+            };
+            List<decimal> fakemode = new List<decimal>
+            {
+                1.222M
+            };
             Stats fackResult = new Stats(1.222M,1.222M, fakemode);
 
             mockIStatsCalc.Setup(x => x.CalcAsync(fackInput)).Returns(Task.FromResult(fackResult));

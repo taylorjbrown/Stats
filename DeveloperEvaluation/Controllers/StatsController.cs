@@ -1,9 +1,9 @@
-﻿using DeveloperEvaluation.BLL;
-using DeveloperEvaluation.Model;
+﻿using StatsApi.BLL;
+using StatsApi.Model;
 using System.Collections.Generic;
 using System.Web.Http;
 
-namespace DeveloperEvaluation.Controllers
+namespace StatsApi.Controllers
 {
     [RoutePrefix("Api")]
     public class StatsController : ApiController

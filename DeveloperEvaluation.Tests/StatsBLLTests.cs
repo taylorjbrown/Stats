@@ -1,5 +1,5 @@
-﻿using DeveloperEvaluation.BLL;
-using DeveloperEvaluation.Model;
+﻿using StatsApi.BLL;
+using StatsApi.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
@@ -25,15 +25,17 @@ namespace DeveloperEvaluation.Tests
         }
 
         [TestMethod]
-        public void mean1()
+        public void Mean1()
         {
-            
-            List<decimal> nums = new List<decimal>();
-            nums.Add(1M);
-            nums.Add(4.556M);
-            nums.Add(-4.56M);
-          
-            Task<decimal> res = _statsCalc.mean(nums);
+
+            List<decimal> nums = new List<decimal>
+            {
+                1M,
+                4.556M,
+                -4.56M
+            };
+
+            Task<decimal> res = _statsCalc.Mean(nums);
 
             Assert.AreEqual(res.Result, 0.332M);
 
@@ -41,102 +43,120 @@ namespace DeveloperEvaluation.Tests
 
         //all values appear once
         [TestMethod]
-        public void mode1()
+        public void Mode1()
         {
-            List<decimal> nums = new List<decimal>();
-            nums.Add(1M);
-            nums.Add(4.556M);
-            nums.Add(-4.56M);
+            List<decimal> nums = new List<decimal>
+            {
+                1M,
+                4.556M,
+                -4.56M
+            };
 
             List<decimal> resultMock = new List<decimal>();
-            Task<List<decimal>> res = _statsCalc.mode(nums);
+            Task<List<decimal>> res = _statsCalc.Mode(nums);
 
             CollectionAssert.AreEqual(res.Result, resultMock);
         }
 
         //just one mode
         [TestMethod]
-        public void mode2()
+        public void Mode2()
         {
-            List<decimal> nums = new List<decimal>();
-            nums.Add(3M);
-            nums.Add(4M);
-            nums.Add(5M);
-            nums.Add(1M);
-            nums.Add(4M);
+            List<decimal> nums = new List<decimal>
+            {
+                3M,
+                4M,
+                5M,
+                1M,
+                4M
+            };
 
-            List<decimal> resMock = new List<decimal>();
-            resMock.Add(4M);
+            List<decimal> resMock = new List<decimal>
+            {
+                4M
+            };
 
-            Task<List<decimal>> res = _statsCalc.mode(nums);
+            Task<List<decimal>> res = _statsCalc.Mode(nums);
             CollectionAssert.AreEqual(res.Result, resMock);
         }
 
         //more than one mode
         [TestMethod]
-        public void mode3()
+        public void Mode3()
         {
-            List<decimal> nums = new List<decimal>();
-            nums.Add(3M);
-            nums.Add(4M);
-            nums.Add(5M);
-            nums.Add(1M);
-            nums.Add(4M);
-            nums.Add(6M);
-            nums.Add(5M);
+            List<decimal> nums = new List<decimal>
+            {
+                3M,
+                4M,
+                5M,
+                1M,
+                4M,
+                6M,
+                5M
+            };
 
-            List<decimal> resultMock = new List<decimal>();
-            resultMock.Add(4M);
-            resultMock.Add(5M);
+            List<decimal> resultMock = new List<decimal>
+            {
+                4M,
+                5M
+            };
 
-            Task<List<decimal>> res = _statsCalc.mode(nums);
+            Task<List<decimal>> res = _statsCalc.Mode(nums);
             CollectionAssert.AreEqual(res.Result,resultMock);
         }
 
         //more than one mode and different numbers of frequncy over 1
         [TestMethod]
-        public void mode4()
+        public void Mode4()
         {
-            List<decimal> nums = new List<decimal>();
-            nums.Add(3M);
-            nums.Add(4M);
-            nums.Add(5M);
-            nums.Add(1M);
-            nums.Add(4M);
-            nums.Add(6M);
-            nums.Add(5M);
-            nums.Add(1M);
-            nums.Add(1M);
-            List<decimal> resultMock = new List<decimal>();
-            resultMock.Add(1M);
+            List<decimal> nums = new List<decimal>
+            {
+                3M,
+                4M,
+                5M,
+                1M,
+                4M,
+                6M,
+                5M,
+                1M,
+                1M
+            };
+            List<decimal> resultMock = new List<decimal>
+            {
+                1M
+            };
 
-            Task<List<decimal>> res = _statsCalc.mode(nums);
+            Task<List<decimal>> res = _statsCalc.Mode(nums);
             CollectionAssert.AreEqual(res.Result,resultMock);
         }
 
         [TestMethod]
-        public void median1()
+        public void Median1()
         {
-            List<decimal> nums = new List<decimal>();
-            nums.Add(1M);
-            nums.Add(4.556M);
-            nums.Add(-4.56M);
+            List<decimal> nums = new List<decimal>
+            {
+                1M,
+                4.556M,
+                -4.56M
+            };
 
-            Task<decimal> res = _statsCalc.median(nums);
+            Task<decimal> res = _statsCalc.Median(nums);
 
             Assert.AreEqual(res.Result, 1M);
         }
 
         [TestMethod]
-        public void median2()
+        public void Median2()
         {
-            List<decimal> nums = new List<decimal>();
-            nums.Add(3.4445M);
-            nums.Add(5M);
-            nums.Add(6M);
-            nums.Add(8M);
+            List<decimal> nums = new List<decimal>
+            {
+                3.4445M,
+                5M,
+                6M,
+                8M
+            };
 
-            Task<decimal> res = _statsCalc.median(nums);
+            Task<decimal> res = _statsCalc.Median(nums);
 
             Assert.AreEqual(res.Result, 5.5M);
         }
@@ -144,10 +164,12 @@ namespace DeveloperEvaluation.Tests
         [TestMethod]
         public void CalcAsync1()
         {
-            List<decimal> nums = new List<decimal>();
-            nums.Add(1M);
-            nums.Add(4.556M);
-            nums.Add(-4.56M);
+            List<decimal> nums = new List<decimal>
+            {
+                1M,
+                4.556M,
+                -4.56M
+            };
 
             Task<Stats> res = _statsCalc.CalcAsync(nums);
 

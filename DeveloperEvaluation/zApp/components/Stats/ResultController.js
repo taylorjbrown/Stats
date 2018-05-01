@@ -1,5 +1,5 @@
 ﻿var resultController = function ($scope, $stateParams) {
-   
+
     if ($stateParams.stats.mode.length === 0) {
         $scope.EmptyMode = true;
         $scope.stats = {};
@@ -12,6 +12,6 @@
         $scope.stats = $stateParams.stats;
     }
 
-}
+};
 
 resultController.$inject = ['$scope','$stateParams'];

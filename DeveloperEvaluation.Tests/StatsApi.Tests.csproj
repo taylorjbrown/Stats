@@ -115,9 +115,9 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DeveloperEvaluation\DeveloperEvaluation.csproj">
+    <ProjectReference Include="..\DeveloperEvaluation\StatsApi.csproj">
       <Project>{70DA34A4-90D4-4B40-9818-E614CC2D6215}</Project>
-      <Name>DeveloperEvaluation</Name>
+      <Name>StatsApi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

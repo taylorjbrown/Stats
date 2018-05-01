@@ -4,8 +4,8 @@ App.controller("statsCalcController", statsCalcController);
 App.controller("resultController", resultController);
 App.controller("alertController", alertController);
 
-var configFun = function ($stateProvider,$urlRouterProvider, $locationProvider) {
-   
+var configFun = function ($stateProvider, $urlRouterProvider, $locationProvider) {
+
 
     $locationProvider.html5Mode(true);
 
@@ -25,18 +25,21 @@ var configFun = function ($stateProvider,$urlRouterProvider, $locationProvider) 
         .state('Stats.Alert', {
             url: '/Alert',
             params: {
-                error: null,
+                error: null
             },
             onEnter: function ($stateParams, $state, $uibModal, $resource) {
                 $uibModal.open({
                     templateUrl: 'zApp/components/Shared/Alert.html',
                     controller: alertController
-                }).result.then(function () { }, function (res) { });
+                }).result.then(function () { },
+                    function (res) {
+                        $state.go('^');
+                });
             }
         });
 
     $urlRouterProvider.otherwise('/Stats');
-}
+};
 
 configFun.$inject = ['$stateProvider','$urlRouterProvider', '$locationProvider'];
 

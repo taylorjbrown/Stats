@@ -11,6 +11,4 @@
 
 + Backend is a RESTful Api with one method in the ApiControlle, a POST endpoint to create the stats
 
-+ Uses asynchronous programming to calculate the Stats
-
 + A Unit Test suit that uses the Microsoft.VisualStudio.TestTools.UnitTesting & Moq libraries is included in the project

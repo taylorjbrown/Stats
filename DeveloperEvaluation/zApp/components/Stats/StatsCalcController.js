@@ -4,7 +4,6 @@
 
     var validation = function (input) {
 
-        //  var check = /[\s\S][-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/g.test(input);
         var removeNewLine = input.replace(/\r?\n|\r/g, ',');
 
         var check = /[\s\S][-]?[0-9]+.[0-9]+(,[-]?[0-9]+.[0-9]+)*$/g.test(removeNewLine);
@@ -12,7 +11,6 @@
         var nums = [];
         if (check) {
             nums = removeNewLine.split(',').map(Number);
-            //console.log(nums);
         }
         else {
             $rootScope.err = 'Badly formated input \nNeeds to be a commad seperated arrray of numbers\nEach new line should not start with a comma \nNor should any line end with a comma \nEx: \n-1.444,2.222,-3.22222\n1,2,-4';
@@ -31,11 +29,11 @@
     $scope.calc = function () {
         if ($scope.input.length > 0) {
             var nums = validation($scope.input);
-            console.log(nums);
+
             if (nums.length > 0) {
                 $http.post('Api/CalcStats', nums).then(function (response) {
                     $scope.res = response.data;
-                    console.log($scope.res);
+
                     $state.go('Stats.Result', { stats: $scope.res });
                 }, function (errResponse) {
                     console.error(err);

@@ -13,7 +13,8 @@
             nums = removeNewLine.split(',').map(Number);
         }
         else {
-            $rootScope.err = 'Badly formated input \nNeeds to be a commad seperated arrray of numbers\nEach new line should not start with a comma \nNor should any line end with a comma \nEx: \n-1.444,2.222,-3.22222\n1,2,-4';
+            $rootScope.errTitle = 'Badly formated input';
+            $rootScope.err = 'Needs to be a comma seperated arrray of numbers\nEach new line should not start with a comma \nNor should any line end with a comma \nEx: \n-1.444,2.222,-3.22222\n1,2,-4';
             $state.go('Stats.Alert');
         }
         return nums;
@@ -43,7 +44,8 @@
             }
         }
         else {
-            $rootScope.err = 'Empty input submission \nNeed to input an array of numbers seperated by \',\' for calculations to run';
+            $rootScope.errTitle = 'Empty input submission';
+            $rootScope.err = 'Need to input an array of numbers seperated by \',\' for calculations to run';
             $state.go('Stats.Alert');
         }
     };

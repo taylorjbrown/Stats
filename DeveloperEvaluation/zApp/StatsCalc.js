@@ -30,7 +30,9 @@ var configFun = function ($stateProvider, $urlRouterProvider, $locationProvider)
             onEnter: function ($stateParams, $state, $uibModal, $resource) {
                 $uibModal.open({
                     templateUrl: 'zApp/components/Shared/Alert.html',
-                    controller: alertController
+                    controller: alertController,
+                    windowClass: 'show',
+                    backdropClass: 'show'
                 }).result.then(function () { },
                     function (res) {
                         $state.go('^');

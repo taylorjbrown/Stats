@@ -228,7 +228,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
-    <Content Include="bower.json" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\DisplayStats - Web Deploy.pubxml" />
   </ItemGroup>

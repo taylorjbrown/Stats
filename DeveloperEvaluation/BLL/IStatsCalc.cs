@@ -1,6 +1,5 @@
 ﻿using StatsApi.Model;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace StatsApi.BLL
 {
